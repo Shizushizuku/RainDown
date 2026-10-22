@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="RainDown 天气记录初稿，展示明确标注的七日虚构天气数据。">
+  <meta name="theme-color" content="#f7f6f2">
+  <title>天气记录 · RainDown</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script src="assets/js/theme.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+  <div class="shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="RainDown 首页">
+        <span class="brand-name">RainDown</span><span class="brand-note">雨落成记</span>
+      </a>
+      <nav class="site-nav" aria-label="主导航"><a href="index.html">首页</a>
+<a href="blog.html">博客</a>
+<a href="notes.html">笔记</a>
+<a href="weather.html" aria-current="page">天气</a></nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="切换到深色模式" aria-pressed="false" hidden><span data-theme-icon aria-hidden="true">☾</span><span data-theme-label>深色</span></button>
+    </header>
+    <main id="main"><header class="page-heading"><div class="eyebrow">WEATHER JOURNAL</div><h1>天气记录</h1><p>晴雨之间，也有日子的形状。用一组简单的数据，留下天气的变化。</p></header><div class="preview-note"><span>初稿预览</span><span>杭州天气数据与观察备注（虚构）均为示例，供查看页面效果。</span></div>
+<div class="page-content">
+  <div class="section-heading"><h2>杭州 · 七日记录</h2><span class="demo-tag">2026.10.15 — 10.21</span></div>
+  <dl class="weather-summary">
+    <div class="weather-stat"><dt>记录天数</dt><dd>7<small>天</small></dd></div>
+    <div class="weather-stat"><dt>气温范围</dt><dd>16—26<small>°C</small></dd></div>
+    <div class="weather-stat"><dt>累计降水</dt><dd>7.4<small>mm</small></dd></div>
+  </dl>
+  <section aria-labelledby="temperature-heading">
+    <div class="section-heading"><h2 id="temperature-heading">气温变化</h2></div>
+    <div class="chart-legend" aria-hidden="true"><span><i class="legend"></i>最高气温</span><span><i class="legend low"></i>最低气温</span></div>
+    <figure class="chart" tabindex="0" role="group" aria-label="气温变化图，窄屏可横向滚动">
+      <svg viewBox="0 0 900 235" role="img" aria-labelledby="chart-title chart-desc"><title id="chart-title">杭州七日最高与最低气温（示例）</title><desc id="chart-desc">10 月 15 至 21 日，实线代表最高气温，虚线代表最低气温。具体数值见下方记录表。</desc><line class="chart-grid" x1="48" y1="180" x2="875" y2="180"/><text x="4" y="184">14°</text><line class="chart-grid" x1="48" y1="140" x2="875" y2="140"/><text x="4" y="144">18°</text><line class="chart-grid" x1="48" y1="100" x2="875" y2="100"/><text x="4" y="104">22°</text><line class="chart-grid" x1="48" y1="60" x2="875" y2="60"/><text x="4" y="64">26°</text><polyline class="chart-high" points="70,80 200,100 330,90 460,70 590,60 720,80 850,100"/><polyline class="chart-low" points="70,140 200,150 330,160 460,150 590,140 720,130 850,140"/><circle cx="70" cy="80" r="3" fill="var(--accent)"/><circle cx="70" cy="140" r="3" fill="var(--chart-low)"/><circle cx="200" cy="100" r="3" fill="var(--accent)"/><circle cx="200" cy="150" r="3" fill="var(--chart-low)"/><circle cx="330" cy="90" r="3" fill="var(--accent)"/><circle cx="330" cy="160" r="3" fill="var(--chart-low)"/><circle cx="460" cy="70" r="3" fill="var(--accent)"/><circle cx="460" cy="150" r="3" fill="var(--chart-low)"/><circle cx="590" cy="60" r="3" fill="var(--accent)"/><circle cx="590" cy="140" r="3" fill="var(--chart-low)"/><circle cx="720" cy="80" r="3" fill="var(--accent)"/><circle cx="720" cy="130" r="3" fill="var(--chart-low)"/><circle cx="850" cy="100" r="3" fill="var(--accent)"/><circle cx="850" cy="140" r="3" fill="var(--chart-low)"/><text x="70" y="218" text-anchor="middle">10/15</text><text x="200" y="218" text-anchor="middle">10/16</text><text x="330" y="218" text-anchor="middle">10/17</text><text x="460" y="218" text-anchor="middle">10/18</text><text x="590" y="218" text-anchor="middle">10/19</text><text x="720" y="218" text-anchor="middle">10/20</text><text x="850" y="218" text-anchor="middle">10/21</text></svg>
+      <figcaption>实线为最高气温，虚线为最低气温；所有数值均为演示数据。窄屏可横向滑动查看。</figcaption>
+    </figure>
+  </section>
+  <section aria-labelledby="records-heading">
+    <div class="section-heading"><h2 id="records-heading">逐日记录</h2><span class="text-link">最近日期在前</span></div>
+    <div class="table-scroll" tabindex="0" role="region" aria-label="逐日天气记录表，窄屏可横向滚动">
+      <table><caption>2026 年 10 月 · 杭州 · 虚构示例记录</caption><thead><tr><th scope="col">日期</th><th scope="col">地点</th><th scope="col">天气</th><th scope="col">最低气温</th><th scope="col">最高气温</th><th scope="col">降水量</th><th scope="col">备注</th></tr></thead><tbody><tr><th scope="row"><time datetime="2026-10-21">10.21</time></th><td>杭州</td><td>小雨</td><td class="numeric">18 °C</td><td class="numeric">22 °C</td><td class="numeric">4.8 mm</td><td>细雨落下</td></tr><tr><th scope="row"><time datetime="2026-10-20">10.20</time></th><td>杭州</td><td>阴</td><td class="numeric">19 °C</td><td class="numeric">24 °C</td><td class="numeric">0.0 mm</td><td>傍晚云厚</td></tr><tr><th scope="row"><time datetime="2026-10-19">10.19</time></th><td>杭州</td><td>晴</td><td class="numeric">18 °C</td><td class="numeric">26 °C</td><td class="numeric">0.0 mm</td><td>日光温和</td></tr><tr><th scope="row"><time datetime="2026-10-18">10.18</time></th><td>杭州</td><td>多云</td><td class="numeric">17 °C</td><td class="numeric">25 °C</td><td class="numeric">0.0 mm</td><td>云间透光</td></tr><tr><th scope="row"><time datetime="2026-10-17">10.17</time></th><td>杭州</td><td>多云</td><td class="numeric">16 °C</td><td class="numeric">23 °C</td><td class="numeric">0.0 mm</td><td>早晚偏凉</td></tr><tr><th scope="row"><time datetime="2026-10-16">10.16</time></th><td>杭州</td><td>小雨</td><td class="numeric">17 °C</td><td class="numeric">22 °C</td><td class="numeric">2.6 mm</td><td>午后有雨</td></tr><tr><th scope="row"><time datetime="2026-10-15">10.15</time></th><td>杭州</td><td>阴</td><td class="numeric">18 °C</td><td class="numeric">24 °C</td><td class="numeric">0.0 mm</td><td>天空灰白</td></tr></tbody></table>
+    </div>
+    <p class="weather-footnote">本页用于展示天气记录的布局；当前没有连接实时天气服务，也没有录入真实观测数据。</p>
+  </section>
+</div></main>
+    <footer class="site-footer">
+      <span>© 2026 RainDown</span>
+      <span>文字、笔记，与天气。<span aria-hidden="true"> · </span><a href="#main">回到顶部 ↑</a></span>
+    </footer>
+  </div>
+</body>
+</html>

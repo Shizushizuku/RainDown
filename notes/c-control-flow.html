@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="C 语言：循环与分支，RainDown 学习笔记初稿。">
+  <meta name="theme-color" content="#f7f6f2">
+  <title>C 语言：循环与分支 · RainDown</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <script src="../assets/js/theme.js"></script>
+  <link rel="stylesheet" href="../assets/css/style.css?v=subject-fold-1">
+  <script src="../assets/js/main.js?v=subject-fold-1" defer></script>
+  <link rel="stylesheet" href="../assets/vendor/katex-0.19.0/katex.min.css">
+  <link rel="stylesheet" href="../assets/css/math.css">
+  <script defer src="../assets/vendor/katex-0.19.0/katex.min.js"></script>
+  <script defer src="../assets/vendor/katex-0.19.0/contrib/auto-render.min.js"></script>
+  <script defer src="../assets/js/math.js"></script>
+</head>
+<body class="indexed-page">
+  <a class="skip-link" href="#main">跳到正文</a>
+  <div class="shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="RainDown 首页">
+        <span class="brand-name">RainDown</span><span class="brand-note">雨落成记</span>
+      </a>
+      <nav class="site-nav" aria-label="主导航"><a href="../index.html">首页</a>
+<a href="../blog.html">博客</a>
+<a href="../notes.html" aria-current="page">笔记</a>
+<a href="../weather.html">天气</a></nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="切换到深色模式" aria-pressed="false" hidden><span data-theme-icon aria-hidden="true">☾</span><span data-theme-label>深色</span></button>
+    </header>
+    <div class="reading-layout" data-reading-layout>
+      <aside class="index-sidebar" id="content-index" aria-labelledby="index-title">
+        <div class="index-heading"><h2 id="index-title">笔记索引</h2><button class="index-close" type="button" data-index-close aria-label="收起内容索引" aria-controls="content-index" aria-expanded="true" hidden>收起 <span aria-hidden="true">←</span></button></div>
+        <nav aria-label="笔记索引">
+          <div class="index-overview"><a href="../notes.html">全部笔记</a></div>
+        <section class="index-group"><h3>数学</h3><ul><li><a href="../notes/limits.html">极限：从直觉到定义</a></li></ul></section>
+        <section class="index-group"><h3>编程</h3><ul><li><a href="../notes/c-control-flow.html" aria-current="page">C 语言：循环与分支</a></li></ul></section>
+        </nav>
+      </aside>
+      <button class="index-toggle" type="button" data-index-toggle aria-controls="content-index" aria-expanded="false" aria-label="展开内容索引" title="展开内容索引" hidden><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16m4-11 3 3-3 3"/></svg><span>显示索引</span></button>
+      <button class="index-backdrop" type="button" data-index-backdrop aria-label="关闭内容索引" tabindex="-1" hidden></button>
+    <main id="main">
+<a class="breadcrumb" href="../notes.html">← 返回学习笔记</a>
+<header class="article-header"><div class="eyebrow">STUDY NOTES</div><h1>C 语言：循环与分支</h1><div class="meta"><time datetime="2026-10-19">2026.10.19</time><span class="category">编程 / C 语言</span><span class="demo-tag">示例学习笔记</span></div></header>
+<div class="preview-note"><span>初稿预览</span><span>本页学习笔记与日期均为示例，供查看页面效果。</span></div>
+<div class="article-layout">
+  <article class="prose" aria-label="C 语言：循环与分支"><section aria-labelledby="loop"><h2 id="loop">循环的执行顺序</h2><p><code>for</code> 循环先执行初始化，再判断条件；条件成立时执行循环体，随后执行更新表达式，再次判断条件。</p><pre><code>for (int i = 0; i &lt; 3; i++) {
+    printf("%d\n", i);
+}</code></pre><p>这段代码依次输出 0、1、2。<code>while</code> 同样先判断条件；<code>do ... while</code> 则先执行一次循环体，再判断条件。</p></section><section aria-labelledby="switch"><h2 id="switch">switch 与 break</h2><p><code>switch</code> 根据表达式的值跳到对应的 <code>case</code>。如果没有 <code>break</code>，程序会继续执行后续分支的语句，直到遇到跳转语句或离开整个 <code>switch</code>。</p><p><code>break</code> 退出最内层的循环或 <code>switch</code>。因此，在循环内部的 <code>switch</code> 中使用 <code>break</code>，通常只会离开 <code>switch</code>。</p></section><section aria-labelledby="exit"><h2 id="exit">在分支中结束外层循环</h2><p>一种清晰的写法是设置结束标志，并在循环体中检查。下面是可以独立编译运行的示例；输入 0 或输入结束时，循环退出。</p><pre><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    int done = 0;
+    while (!done) {
+        int item;
+        if (scanf("%d", &amp;item) != 1) break;
+
+        switch (item) {
+            case 0:
+                done = 1;
+                break;
+            default:
+                printf("item = %d\n", item);
+                break;
+        }
+    }
+    return 0;
+}</code></pre></section><section aria-labelledby="continue"><h2 id="continue">continue 的作用范围</h2><p><code>continue</code> 结束最内层循环的本次迭代。在 <code>for</code> 中，接着执行更新表达式；在 <code>while</code> 中，接着重新判断循环条件。</p><p><code>switch</code> 本身不是循环。位于循环内的 <code>switch</code> 中若出现 <code>continue</code>，它作用于包围它的最内层循环。</p></section><div class="article-end">示例学习笔记结束 · <a href="../notes.html">返回学习笔记</a></div></article>
+  <nav class="article-toc" aria-label="本文目录"><h2>本页目录</h2><ol><li><a href="#loop">循环的执行顺序</a></li><li><a href="#switch">switch 与 break</a></li><li><a href="#exit">在分支中结束外层循环</a></li><li><a href="#continue">continue 的作用范围</a></li></ol></nav>
+</div></main>
+    </div>
+    <footer class="site-footer">
+      <span>© 2026 RainDown</span>
+      <span>文字、笔记，与天气。<span aria-hidden="true"> · </span><a href="#main">回到顶部 ↑</a></span>
+    </footer>
+  </div>
+</body>
+</html>

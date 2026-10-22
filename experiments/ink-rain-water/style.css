@@ -1,0 +1,42 @@
+@font-face { font-family: "RainDown Boya"; src: local("FZBoYaSongS-GB"), local("方正博雅宋简体"), local("FZBoYaSong"), local("方正博雅宋_GBK"); font-display: swap; }
+:root { color-scheme: light; --ink: #303936; --muted: #6b736c; --rule: rgba(80, 95, 87, .17); --accent: #4b6c73; --serif: "RainDown Boya", "Songti SC", "STSong", "SimSun", serif; }
+* { box-sizing: border-box; }
+html { min-height: 100%; background: #f8f3e6; overscroll-behavior-y: none; }
+body { margin: 0; min-height: 100vh; background: #f8f3e6; overscroll-behavior-y: none; color: var(--ink); font: 16px/1.85 var(--serif); -webkit-font-smoothing: antialiased; }
+canvas { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+#water { z-index: 0; } #rain { z-index: 1; }
+.shell { position: relative; z-index: 2; width: min(1040px, calc(100% - 96px)); margin: 0 auto; }
+.site-header { min-height: 108px; border-bottom: 1px solid var(--rule); display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.brand { display: inline-flex; align-items: baseline; gap: 14px; white-space: nowrap; }
+.brand-name { font: 27px Georgia, serif; letter-spacing: -.8px; }
+.brand-note { color: var(--muted); font-size: 12px; letter-spacing: 3px; }
+nav { display: flex; gap: 32px; color: var(--muted); font-size: 15px; }
+nav span { padding: 12px 0; } nav .current { color: var(--accent); }
+.eyebrow { margin-top: 66px; color: var(--muted); font: 12px Georgia, serif; letter-spacing: 2px; }
+.hero { display: grid; grid-template-columns: 1fr 250px; align-items: end; gap: 64px; padding: 12px 0 62px; }
+.hero h1 { margin: 0; font-size: clamp(34px, 4.3vw, 50px); font-weight: 400; line-height: 1.5; letter-spacing: 2px; }
+.hero p { margin: 20px 0 0; color: var(--muted); font-size: 15px; }
+.hero aside { padding-bottom: 6px; color: var(--muted); font-size: 14px; line-height: 2.2; }
+.hero aside::before { content: ""; display: block; width: 32px; height: 1px; margin-bottom: 22px; background: rgba(90, 114, 101, .47); }
+.section-rule { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 14px 0; display: flex; align-items: baseline; gap: 15px; font-size: 21px; }
+.section-rule span + span { color: var(--muted); font: 11px Georgia, serif; letter-spacing: 1.4px; }
+.entries { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+article { padding: 23px 0 27px; border-bottom: 1px solid var(--rule); }
+article time { color: var(--muted); font-size: 12px; }
+article h2 { margin: 6px 0; font-size: 22px; font-weight: 400; }
+article p { margin: 0; color: var(--muted); font-size: 13px; }
+footer { display: flex; justify-content: space-between; gap: 24px; margin-top: 76px; padding: 22px 0 30px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 12px; }
+button { padding: 0; border: 0; border-bottom: 1px solid var(--rule); background: transparent; color: var(--muted); font: inherit; cursor: pointer; }
+button:hover { color: var(--ink); border-color: var(--ink); } button:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+@media (max-width: 720px) {
+  .shell { width: calc(100% - 44px); }
+  .site-header { min-height: 94px; flex-wrap: wrap; align-content: center; gap: 3px 20px; }
+  .brand-name { font-size: 23px; } .brand-note { font-size: 10px; }
+  nav { width: 100%; gap: 24px; font-size: 13px; }
+  nav span { padding: 0 0 4px; }
+  .eyebrow { margin-top: 49px; }
+  .hero { grid-template-columns: 1fr; gap: 33px; padding-bottom: 45px; }
+  .hero aside { font-size: 13px; }
+  .entries { grid-template-columns: 1fr; gap: 0; }
+  footer { margin-top: 52px; }
+}

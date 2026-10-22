@@ -1,0 +1,5 @@
+.prose { min-width: 0; }
+.prose .katex { font-size: 1.08em; }
+.prose .katex-display { max-width: 100%; overflow-x: auto; overflow-y: hidden; padding-block: .25em; }
+.prose .formula .katex-display { margin-block: 0; }
+.prose .katex-error { color: var(--ink); overflow-wrap: anywhere; }
